@@ -5,9 +5,9 @@
 replicaCount: 1
 
 image:
-  repository: nginx
-  tag: stable
-  pullPolicy: IfNotPresent
+  repository: docker.fuchicorp.com/main-website-dev
+  tag: latest
+  pullPolicy: Always
 
 nameOverride: ""
 fullnameOverride: ""
@@ -15,19 +15,22 @@ fullnameOverride: ""
 service:
   type: ClusterIP
   port: 80
+  targetPort: 80
 
 ingress:
-  enabled: false
-  annotations: {}
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
+  enabled: true
+  annotations: 
+     kubernetes.io/ingress.class: nginx
+     kubernetes.io/tls-acme: "true"
+     certmanager.k8s.io/cluster-issuer: letsencrypt-fuchicorp-prod
+
   path: /
   hosts:
-    - chart-example.local
-  tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
+    - test-website.fuchicorp.com
+  tls: 
+     - secretName: test-website-tls
+       hosts:
+         - test-website.fuchicorp.com
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
@@ -46,3 +49,8 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+imageSecret:
+  enabled: true
+  allSecrets:
+  - name: nexus-creds
