@@ -2,7 +2,7 @@ resource "helm_release" "main_website_services_ingress" {
 
   name = "main-website-services-ingress-${var.deployment_environment}"
   namespace = "${var.deployment_environment}"
-  chart = "./helm-deployment"
+  chart = "./fuchicorp-website"
 
   set {
     name = "dns_endpoint"
