@@ -5,8 +5,8 @@
 replicaCount: 1
 
 image:
-  repository: docker.fuchicorp.com/main-website-dev
-  tag: latest
+  repository: ${docker_image}
+  tag: ${docker_image_tag}
   pullPolicy: Always
 
 nameOverride: ""
@@ -26,11 +26,11 @@ ingress:
 
   path: /
   hosts:
-    - test-website.fuchicorp.com
+    - test-website.${domain_name}
   tls: 
      - secretName: test-website-tls
        hosts:
-         - test-website.fuchicorp.com
+         - test-website.${domain_name}
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
