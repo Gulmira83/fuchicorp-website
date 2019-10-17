@@ -1,5 +1,5 @@
 data "template_file" "fuchicorp_website_values" {
-  template = "${file("./fuchicorp_website/template_values.yaml")}"
+  template = "${file("./fuchicorp-website/template_values.yaml")}"
   vars = {
     domain_name = "${var.domain_name}"
     docker_image = "${var.docker_image}"
