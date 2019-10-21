@@ -1,16 +1,22 @@
   
-variable "namespace" {
-  default = "test"
+variable "deployment_environment" {
+  default = "dev"
+}
+
+variable "dns_endpoint_fuchicorp_website" {
+  type = "map"
+
+  default = {
+    dev  = "dev.website.fuchicorp.com"
+    qa   = "qa.website.fuchicorp.com"
+    prod = "website.fuchicorp.com"
+  }
 }
 variable "version" {
   default = "6.0.1"
 }
+variable "deployment_image" {}
+
 variable "name" {
   default = "fuchicorp-website"
-}
-variable "domain_name" {
-  default = "fuchicorp.com"
-}
-variable "docker_image" {
-  default = "docker.fuchicorp.com/main-website-dev"
 }
