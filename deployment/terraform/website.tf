@@ -3,7 +3,6 @@ data "template_file" "fuchicorp_website_values" {
   vars = {
     domain_name = "${var.domain_name}"
     docker_image = "${var.docker_image}"
-    docker_image_tag = "${var.docker_image_tag}"
   }
 }
 
