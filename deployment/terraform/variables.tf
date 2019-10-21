@@ -1,6 +1,6 @@
   
 variable "deployment_environment" {
-  default = "dev"
+  default = "qa"
 }
 
 variable "dns_endpoint_fuchicorp_website" {
