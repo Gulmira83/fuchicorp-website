@@ -14,4 +14,3 @@ variable "domain_name" {
 variable "docker_image" {
   default = "docker.fuchicorp.com/main-website-dev"
 }
-variable "docker_image_tag" {}

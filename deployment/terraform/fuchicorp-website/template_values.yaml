@@ -6,7 +6,6 @@ replicaCount: 1
 
 image:
   repository: ${docker_image}
-  tag: ${docker_image_tag}
   pullPolicy: Always
 
 nameOverride: ""
