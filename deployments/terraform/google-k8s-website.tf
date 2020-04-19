@@ -10,3 +10,4 @@ module "fuchicorp_website" {
     deployment_image  = "${var.deployment_image}"
   }
 }
+
